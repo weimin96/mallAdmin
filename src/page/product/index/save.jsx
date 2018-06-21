@@ -99,7 +99,7 @@ const ProductSave = React.createClass({
             categoryId          : product.categoryId,
             name                : product.name,
             subtitle            : product.subtitle,
-            subImage            : product.subImage .split(','),
+            subImage            : product.subImage.split(','),
             detail              : product.detail,
             price               : product.price,
             stock               : product.stock,
@@ -147,10 +147,10 @@ const ProductSave = React.createClass({
 
     // 图片上传成功
     onUploadSuccess(res){
-        let subImage  = this.state.subImage ;
-        subImage .push(res.data.uri);
+        let subImage  = this.state.subImage;
+        subImage.push(res.data.uri);
         this.setState({
-            subImage : subImage 
+            subImage: subImage
         });
     },
     // 图片上传失败
@@ -159,13 +159,13 @@ const ProductSave = React.createClass({
     },
     // 删除图片
     onDeleteImage(img){
-        let subImage    = this.state.subImage ,
-            imageIndex  = subImage .indexOf(img);
+        let subImage    = this.state.subImage,
+            imageIndex  = subImage.indexOf(img);
         if(imageIndex >= 0){
-            subImage .splice(imageIndex, 1);
+            subImage.splice(imageIndex, 1);
         }
         this.setState({
-            subImage : subImage 
+            subImage: subImage
         });
     },
     // 验证要提交的产品信息是否符合规范
@@ -209,7 +209,7 @@ const ProductSave = React.createClass({
                 categoryId          : this.state.secondCategoryId || this.state.firstCategoryId || 0,
                 name                : this.state.name,
                 subtitle            : this.state.subtitle,
-                subImage            : this.state.subImage .join(','),
+                subImage            : this.state.subImage.join(','),
                 detail              : this.state.detail,
                 price               : this.state.price,
                 stock               : this.state.stock,
@@ -326,7 +326,7 @@ const ProductSave = React.createClass({
                                 <label htmlFor="inputEmail3" className="col-md-2 control-label">商品图片</label>
                                 <div className="img-con col-md-10">
                                     {
-                                        this.state.subImage .length ? this.state.subImage .map((image, index) => {
+                                        this.state.subImage.length ? this.state.subImage.map((image, index) => {
                                             return (
                                                 <div className="sub-img" key={index}>
                                                     <img className="img" src={_mm.getImageUrl(image)}/>
